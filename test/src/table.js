@@ -1,14 +1,14 @@
 import React, { Fragment, useState } from 'react'
-import List from './collection.json'
 import Tabledata from './tabledata'
 import {nanoid} from 'nanoid'
 import Editrow from './editrow'
+import './table.css'
 
 
 
 function Table() {
     const [editclick,seteditclick] = useState(null)
-    const [data,setdata] = useState(List)
+    const [data,setdata] = useState([])
     const [dumidata,setdumidata] = useState({
         fullname:"",
         userid:"",
@@ -89,11 +89,15 @@ function Table() {
             const newarray = [...data]
             newarray[index] = editlist
             setdata(newarray)
+            seteditclick(null)
         }
+        // const onsavepress = (value) =>{
+        //     seteditclick(null)
+        // }
     return (
     <div>
         <form onSubmit={oneditrowformsubmi}>
-            <table border="1">
+            <table>
                 <thead>
                     <tr>
                         <th>sl.no</th>
@@ -109,7 +113,7 @@ function Table() {
                             return (
                                 <Fragment key={index}>
                                     {
-                                        (item.id == editclick)?(<Editrow Cancelhandle={Cancelhandle} editlist={editlist} editrowchange={editrowchange}/>)
+                                        (item.id == editclick)?(<Editrow Cancelhandle={Cancelhandle} editlist={editlist} editrowchange={editrowchange} />)
                                         :<Tabledata item={item} index={index} handleDelete={handleDelete} handleEdit={handleEdit}/>
                                     }
                                 </Fragment>

@@ -1,4 +1,7 @@
 import React from 'react'
+import "./tabledta.css"
+
+
 
 function Tabledata({item,index,handleDelete,handleEdit}) {
   return (
@@ -8,8 +11,8 @@ function Tabledata({item,index,handleDelete,handleEdit}) {
         <td>{item.userid}</td>
         <td>{item.product}</td>
         <td>
-            <button onClick={(event)=>handleEdit(event,item)}>Edit</button>
-            <button onClick={(event)=>handleDelete(event,item.id)}>Delete</button>
+            <button onClick={(event)=>handleEdit(event,item)} className="editbtn">Edit</button>
+            <button onClick={(event)=>handleDelete(event,item.id)} className="deletebtn">Delete</button>
         </td>
     </tr>
     )

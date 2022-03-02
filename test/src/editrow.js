@@ -1,6 +1,8 @@
 import React from 'react'
+import "./editrow.css"
 
-function Editrow({Cancelhandle,editlist,editrowchange}) {
+
+function Editrow({Cancelhandle,editlist,editrowchange,onsavepress}) {
   return (
         <tr>
             <td>
@@ -16,8 +18,8 @@ function Editrow({Cancelhandle,editlist,editrowchange}) {
                 <input type="text" placeholder='Enter a Product' name="product" required="required" value={editlist.product} onChange={editrowchange}/>
             </td>
             <td>
-                <button>Save</button>
-                <button onClick={Cancelhandle}>Cancel</button>
+                <button className='savebtn'>Save</button>
+                <button onClick={Cancelhandle} className="cancelbtn">Cancel</button>
             </td>
         </tr>
   )
